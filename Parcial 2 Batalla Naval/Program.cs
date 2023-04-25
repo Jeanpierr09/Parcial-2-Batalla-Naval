@@ -25,7 +25,7 @@
                 {
                     int[,] tablero = new int[5, 5];
                     Random random = new Random();
-                    int totalbarcos = 0;
+                    
 
                     void barcos()
                     {
@@ -39,7 +39,7 @@
                             {
                                 tablero[f, c] = 1;
                                 barkitos++;
-                                totalbarcos = barkitos - totalbarcos;
+                               
                                 
                             }
                         }
@@ -73,7 +73,7 @@
                                 }
                                 else if (tablero[f, c] == 1)
                                 {
-                                    Console.Write("n ");
+                                    Console.Write("- ");
                                 }
                                 else if (tablero[f, c] == 2)
                                 {
@@ -94,6 +94,7 @@
                     {
                         barcos();
                         int contador = 0;
+                        int barcosrestantes = 3;
                         Console.WriteLine("Has seleccionado el modo facil, !EMPIEZA A ATACAR!\n");
                         while (Barcos_en_Tablero())
                         {
@@ -113,7 +114,7 @@
                                     Console.Clear();
                                     Console.WriteLine("¡Has golpeado un barco!");
                                     Console.Beep();
-                                    Console.WriteLine($"Sigue así, aún quedan {totalbarcos} barco en el tablero");
+                                    Console.WriteLine($"Quedan {barcosrestantes = barcosrestantes - 1} barcos en el tablero");
                                     contador++;
                                 }
 
@@ -176,10 +177,17 @@
                     }
                     void imprimir_tablero()
                     {
-                        Console.WriteLine("  1 2 3 4 5 6 7 8 9 10");
+                        Console.WriteLine("   1 2 3 4 5 6 7 8 9 10");
                         for (int f = 0; f < 10; f++)
                         {
-                            Console.Write(f + 1 + " ");
+                            if(f<9)
+                            {
+                                Console.Write(f + 1 + "  ");
+                            }
+                            else
+                            {
+                                Console.Write(f + 1 + " ");
+                            }
                             for (int c = 0; c < 10; c++)
                             {
                                 if (tablero[f, c] == 0)
@@ -209,6 +217,7 @@
                     {
                         barcos();
                         int contador = 0;
+                        int barcosrestantes = 15;
                         Console.WriteLine("Has seleccionado el modo intermedio, !EMPIEZA A ATACAR!\n");
                         while (Barcos_en_Tablero())
                         {
@@ -228,6 +237,7 @@
                                     Console.Clear();
                                     Console.WriteLine("¡Has golpeado un barco!");
                                     Console.Beep();
+                                    Console.WriteLine($"Quedan {barcosrestantes = barcosrestantes - 1} barcos en el tablero");
                                     contador++;
                                 }
 
@@ -331,6 +341,7 @@
                     {
                         barcos();
                         int contador = 0;
+                        int barcosrestantes = 45;
                         Console.WriteLine("Has seleccionado el modo díficil, !EMPIEZA A ATACAR!\n");
                         while (Barcos_en_Tablero())
                         {
@@ -350,6 +361,7 @@
                                     Console.Clear();
                                     Console.WriteLine("¡Has golpeado un barco!");
                                     Console.Beep();
+                                    Console.WriteLine($"Quedan {barcosrestantes = barcosrestantes - 1} barcos en el tablero");
                                     contador++;
                                 }
 
